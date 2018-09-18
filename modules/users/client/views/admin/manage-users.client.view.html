@@ -1,0 +1,240 @@
+<div class="content-header">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="header-section">
+                <h1>Users List </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 hidden-xs">
+            <div class="header-section">
+                <ul class="breadcrumb breadcrumb-top">
+                    <li>users</li>
+                    <li><a href="">manage users</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="block">
+    <div class="block-title">
+        <h2>All Users</h2>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-vcenter table-sm table-hover table-condensed table-responsive">
+            <thead>
+                <!-- <th style="font-size: small; text-align: center;">_Id</th> -->
+                <th style="font-size: small; text-align: center;">Username</th>
+                <th style="font-size: small; text-align: center;">Roles</th>
+                <th style="font-size: small; text-align: center;">Email</th>
+                <th style="font-size: small; text-align: center;">First Name</th>
+                <th style="font-size: small; text-align: center;">Last Name</th>
+                <th style="font-size: small; text-align: center;">Machine</th>
+                <th style="font-size: small; text-align: center;">Notification</th>
+                <th style="font-size: small; text-align: center;">created</th>
+                <th class="text-center" style="width: 50px; font-size: small;"><i class="fa fa-flash"></i></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in vm.users" style='font-size: small;'>
+                    <!-- <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user._id }}">
+                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                            {{ user._id }}
+                            </a>
+                        </span>
+                    </td> -->
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.displayName }}">
+                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                            {{ user.username }}
+                            </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.roles[0] }}">
+                            <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'UpdateUsersController', { user: user, setting: 'roles' })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                            {{ user.roles[0] }}
+                            </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.email }}">
+                            <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'UpdateUsersController', { user: user, setting: 'email' })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                            {{ user.email }}
+                            </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.firstName }}">
+                            <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'UpdateUsersController', { user: user, setting: 'firstName' })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                            {{ user.firstName }}
+                            </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.lastName }}">
+                            <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'UpdateUsersController', { user: user, setting: 'lastName' })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                            {{ user.lastName }}
+                            </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.machines[0] }}">
+                            <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'UpdateUsersController', { user: user, setting: 'machines' })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                                {{ user.machines[0] }}
+                                </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.isNoti }}">
+                            <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'UpdateUsersController', { user: user, setting: 'isNoti' })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                                {{ user.isNoti }}
+                                </a>
+                        </span>
+                    </td>
+                    <td align="center" valign="middle">
+                        <span class="success" data-container="body" data-html="true" title="{{ user.created }}">
+                            {{ user.created }}
+                        </span>
+                    </td>                    
+
+                    <td align="center" valign="middle" class="text-center" width="10%" cellpadding="0" cellspacing="0">
+                        <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'passwordModalContent.html', 'UpdateUsersController', { user: user,  setting: 'password'})"
+                         class="btn btn-effect-ripple btn-xs btn-primary" data-toggle="modal">
+                            <span data-toggle="tooltip" title="Change Password" data-placement="top"><i class="fa fa-key"></i>
+                            </span>
+                        </a>
+                        <a href="javascript:void(0)" title="Login as This User" ng-click="vm.openDialog('md', '.modal-parent', 'loginModalContent.html', 'UpdateUsersController', { user: user,  setting: 'password'})"
+                        class="btn btn-effect-ripple btn-xs btn-info" data-toggle="modal">
+                            <i class="fa fa-sign-in"></i>
+                        </a>
+                        <a href="javascript:void(0)" ng-click="vm.removeUser(user)" title="Remove Dead Entry" class="btn btn-effect-ripple btn-xs btn-danger">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal-group">
+    <div class="modal-parent">
+    </div>
+</div>
+
+<!-- Dialog Templates -->
+<script type="text/ng-template" id="renameModalContent.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="modal-title">{{ $ctrl.setting }}</h4>
+    </div>
+    <div class="modal-body" id ="modal-body">
+      <form id="rename-form" name="renameForm" ng-submit="$ctrl.rename(renameForm.$valid)" class="form-bordered">
+        <div class="form-group">
+          <label for="example-nf-password">Current</label>
+            <span class="form-control" disabled ng-if="$ctrl.setting === 'roles'">{{ $ctrl.user.roles[0] }}</span>
+            <span class="form-control" disabled ng-if="$ctrl.setting === 'email'">{{ $ctrl.user.email }}</span>
+            <span class="form-control" disabled ng-if="$ctrl.setting === 'firstName'">{{ $ctrl.user.firstName }}</span>
+            <span class="form-control" disabled ng-if="$ctrl.setting === 'lastName'">{{ $ctrl.user.lastName }}</span>
+            <span class="form-control" disabled ng-if="$ctrl.setting === 'machines'">{{ $ctrl.user.machines[0] }}</span>
+            <span class="form-control" disabled ng-if="$ctrl.setting === 'isNoti'">{{ $ctrl.user.isNoti }}</span>
+        </div>
+        <div class="form-group has-feedback">
+          <label for="example-nf-password">New</label>
+            <select ng-model="$ctrl.input.roles" class="form-control" name="{{ $ctrl.roles[0] }}" ng-if="$ctrl.setting === 'roles'" data-error="Please select a miner" required>
+                <option value="admin">Administrator</option>
+                <option value="user">User</option>
+            </select>
+            <select ng-model="$ctrl.input.machines" class="form-control" name="{{ $ctrl.machines[0] }}" ng-if="$ctrl.setting === 'machines'" data-error="Please select a machine" value="" required>
+                <option value="AMD">AMD</option>
+                <option value="NVIDIA">NVIDIA</option>
+            </select>
+            <select ng-model="$ctrl.input.isNoti" class="form-control" name="{{ $ctrl.isNoti }}" ng-if="$ctrl.setting === 'isNoti'" data-error="Please set the Notification option" value="" required>
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+          <input ng-model="$ctrl.input.email" type="text" name="{{ $ctrl.email }}" ng-if="$ctrl.setting === 'email'" class="form-control" minlength="2" data-error="Please enter a new value.." required>
+          <input ng-model="$ctrl.input.firstName" type="text" name="{{ $ctrl.firstName }}" ng-if="$ctrl.setting === 'firstName'" class="form-control" minlength="2" data-error="Please enter a new value.." required>
+          <input ng-model="$ctrl.input.lastName" type="text" name="{{ $ctrl.lastName }}" ng-if="$ctrl.setting === 'lastName'" class="form-control" minlength="2" data-error="Please enter a new value.." required>
+          
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group form-actions">
+          <button type="submit" class="btn btn-effect-ripple btn-primary" ng-disabled="renameForm.$invalid">Submit</button>
+          <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+          <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.cancel()">Close</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+</script>
+
+<script type="text/ng-template" id="passwordModalContent.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">User : {{ $ctrl.user.username }}</h4>
+    </div>
+    <div class="modal-body" id ="passwordModal">
+        <form id="otherpassword-form" name="otherPasswordForm" ng-submit="$ctrl.changepass(otherPasswordForm.$valid)" class="form-bordered">
+            <fieldset>
+                <!-- <div class="form-group has-feedback" show-errors>
+                    <label for="currentPassword1">Current Password</label>
+                    <input type="password" id="currentPassword1" name="currentPassword" class="form-control" ng-model="$ctrl.passwordDetails.currentPassword" placeholder="Current Password" required autofocus>
+                </div> -->
+                <div class="form-group has-feedback" show-errors>
+                    <label for="newPassword1">New Password</label>
+                    <input type="password" id="newPassword1" name="newPassword" class="form-control" ng-model="$ctrl.passwordDetails.newPassword" password-validator  uib-popover="{{$ctrl.getPopoverMsg()}}" uib-popover-trigger="focus" placeholder="New Password" required>
+                </div>
+                <div class="form-group has-feedback" show-errors>
+                    <label for="verifyPassword1">Verify Password</label>
+                    <input type="password" id="verifyPassword1" name="verifyPassword" class="form-control" ng-model="$ctrl.passwordDetails.verifyPassword" placeholder="Verify Password" password-verify="$ctrl.passwordDetails.newPassword" password-validator required>
+                </div>
+                <div class="form-group" ng-show="!otherPasswordForm.newPassword.$error.required">
+                    <label>Password Requirements</label>
+                    <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
+                </div>
+                <div class="form-group form-actions text-center">
+                    <button type="submit" class="btn btn-effect-ripple btn-primary" ng-disabled="otherPasswordForm.$invalid">Save Password</button>
+                    <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+                    <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Close</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </script>
+  <script type="text/ng-template" id="loginModalContent.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Login as This User</h4>
+    </div>
+    <div class="modal-body" id ="passwordModal">
+        <form id="otherlogin-form" name="otherloginForm" ng-submit="$ctrl.loginUser(otherloginForm.$valid)" class="form-bordered">
+            <fieldset>
+                <div class="form-group has-feedback" show-errors>
+                    <label for="username">User name</label>
+                    <input type="text" id="username" disabled name="username" class="form-control" ng-model="$ctrl.loginDetails.username">
+                </div>
+                <div class="form-group has-feedback" show-errors>
+                    <label for="useremail">User email</label>
+                    <input type="text" id="useremail" disabled name="useremail" class="form-control" ng-model="$ctrl.loginDetails.usernameOrEmail">
+                </div>
+                <div class="form-group has-feedback" show-errors>
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" class="form-control" ng-model="$ctrl.loginDetails.password" placeholder="Please enter Password" required>
+                </div>
+                <div class="form-group form-actions text-center">
+                    <button type="submit" class="btn btn-effect-ripple btn-primary" ng-disabled="otherloginForm.$invalid">Login</button>
+                    <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Close</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </script>
+  

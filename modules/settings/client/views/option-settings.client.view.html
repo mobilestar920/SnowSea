@@ -1,0 +1,214 @@
+<div class="content-header">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="header-section">
+				<h1>Basic Options By &nbsp;<strong>{{ vm.user.roles[0] }}</strong></h1>
+			</div>
+		</div>
+		<div class="col-sm-6 hidden-xs">
+			<div class="header-section">
+				<ul class="breadcrumb breadcrumb-top">
+					<li>Basic Options</li>
+					<li><a href="">{{ vm.user.displayName }}</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="block">
+	<div id="faq2" class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<i class="fa fa-angle-right"></i>
+					<a id="miner-option-link" class="accordion-toggle" data-toggle="collapse" data-parent="#faq2" href="#miner-option" ng-click="vm.setState('miner')">
+						<strong>Miner</strong>
+					</a>
+				</div>
+			</div>
+			<div id="miner-option" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-4">
+							<form id="miner-option-form" name="minerForm" ng-submit="vm.addOption(minerForm.$valid)" class="form-bordered">
+								<div class="form-group">
+									<input type="text" class="form-control" name="display" placeholder="New Miner Display Option" minlength="3" maxlength="30" required ng-model="vm.input.display">
+									<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group has-feedback">
+									<input type="text" class="form-control" name="value" placeholder="New Miner Value Option" minlength="3" maxlength="30" data-error="That's not a correct value" required ng-model="vm.input.value">
+									<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-effect-ripple btn-primary" ng-disabled="minerForm.$isValid">Save</button>
+									<button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-8">
+							<div class="block">
+								<div class="block-title">
+									<h2>Current Available Options</h2>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-vcenter table-sm table-hover table-condensed table-responsive">
+										<thead>
+											<th style="font-size: small; text-align: center;">Option</th>
+											<th style="font-size: small; text-align: center;">Value</th>
+										</thead>
+										<tbody>
+											<tr ng-repeat="option in vm.options" style='font-size: small;'>
+												<td align="center" valign="middle">
+													<span class="success" data-container="body" style='font-weight: bold;' data-html="true" title="{{ option.display }}">
+														{{ option.display }}
+													</span>
+												</td>
+												<td align="center" valign="middle">
+													<span class="success" data-container="body" data-html="true" title="{{ option.value }}">
+														{{ option.value }}
+													</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<i class="fa fa-angle-right"></i>
+					<a id="wallet-option-link" class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#wallet-option" ng-click="vm.setState('wallet')">
+						<strong>Wallet</strong>
+					</a>
+				</div>
+			</div>
+			<div id="wallet-option" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-4">
+							<form id="wallet-option-form" name="walletForm" ng-submit="vm.addOption(walletForm.$valid)" class="form-bordered">
+								<div class="form-group has-feedback">
+									<input type="text" class="form-control" name="display" placeholder="New Wallet Display Option" minlength="3" maxlength="50" data-error="That's not a correct number" required ng-model="vm.input.display">
+									<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group has-feedback">
+									<input type="text" class="form-control" name="value" placeholder="New Wallet Value Option" minlength="3" maxlength="50" data-error="That's not a correct number" required ng-model="vm.input.value">
+									<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-effect-ripple btn-primary " ng-disabled="walletForm.$isValid">Save</button>
+									<button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-8">
+							<div class="block">
+								<div class="block-title">
+									<h2>Current Available Options</h2>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-vcenter table-sm table-hover table-condensed table-responsive">
+										<thead>
+											<th style="font-size: small; text-align: center;">Option</th>
+											<th style="font-size: small; text-align: center;">Value</th>
+										</thead>
+										<tbody>
+											<tr ng-repeat="option in vm.options" style='font-size: small;'>
+												<td align="center" valign="middle">
+													<span class="success" data-container="body" style='font-weight: bold;' data-html="true" title="{{ option.display }}">
+														{{ option.display }}
+													</span>
+												</td>
+												<td align="center" valign="middle">
+													<span class="success" data-container="body" data-html="true" title="{{ option.value }}">
+														{{ option.value }}
+													</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<i class="fa fa-angle-right"></i>
+					<a id="pool-option-link" class="accordion-toggle" data-toggle="collapse" data-parent="#faq2" href="#pool-option" ng-click="vm.setState('pool')">
+						<strong>Pool</strong>
+					</a>
+				</div>
+			</div>
+			<div id="pool-option" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-4">
+							<form id="pool-option-form" name="poolForm" ng-submit="vm.addOption(poolForm.$valid)" class="form-bordered">
+								<div class="form-group">
+									<input type="text" class="form-control" name="display" minlength="2" maxlength="50" placeholder="New Pool Display Option" data-error="That is not correct?" required ng-model="vm.input.display">
+									<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group has-feedback">
+									<input type="text" class="form-control" name="value" minlength="2" maxlength="50" placeholder="New Pool Value Option" data-error="That is not correct?" required ng-model="vm.input.value">
+									<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-effect-ripple btn-primary" ng-disabled="poolForm.$isValid">Save</button>
+									<button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-8">
+							<div class="block">
+								<div class="block-title">
+									<h2>Current Available Options</h2>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-vcenter table-sm table-hover table-condensed table-responsive">
+										<thead>
+											<th style="font-size: small; text-align: center;">Option</th>
+											<th style="font-size: small; text-align: center;">Value</th>
+										</thead>
+										<tbody>
+											<tr ng-repeat="option in vm.options" style='font-size: small;'>
+												<td align="center" valign="middle">
+													<span class="success" data-container="body" style='font-weight: bold;' data-html="true" title="{{ option.display }}">
+														{{ option.display }}
+													</span>
+												</td>
+												<td align="center" valign="middle">
+													<span class="success" data-container="body" data-html="true" title="{{ option.value }}">
+														{{ option.value }}
+													</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

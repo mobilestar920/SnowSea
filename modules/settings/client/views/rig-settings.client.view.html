@@ -1,0 +1,316 @@
+<div class="content-header">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="header-section">
+        <h1>Single Rig Settings for {{ vm.getName() }}</h1>
+      </div>
+    </div>
+    <div class="col-sm-6 hidden-xs">
+      <div class="header-section">
+        <ul class="breadcrumb breadcrumb-top">
+          <li>Rig Settings</li>
+          <li><a href="">{{ vm.getName() }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="block">
+  <div class="block-title">
+    <h2>Single Rig Settings</h2>
+  </div>
+  <div class="row text-center">
+    <div class="block-section">
+    </div>
+  </div>
+  <div id="faq1" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <i class="fa fa-angle-right"></i>
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#reboot">
+            <strong>Reboot {{ vm.getName() }}</strong>
+          </a>
+        </div>
+      </div>
+      <div id="reboot" class="panel-collapse collapse">
+        <div class="panel-body">
+          <form id="reboot-form" name="rebootForm" ng-submit="vm.setReboot(rebootForm.$valid)" class="form-bordered">
+            <div class="form-group">
+              <label for="example-nf-password">Current amount of single reboots</label>
+              <span class="form-control" disabled>{{ vm.reboots() }}</span>
+            </div>
+            <div class="form-group has-feedback">
+              <div class="checkbox">
+                <label>
+                <input type="checkbox" id="terms" data-error="You have to be sure!" required>
+                Are you sure?
+                </label>
+                <div class="help-block with-errors"></div>
+              </div>
+              <input type="hidden" id="hostname" name="hostname" class="form-control" value="{{ vm.params.rig }}">
+              <input type="hidden" id="mac" name="mac" class="form-control" value="{{ vm.params.mac }}">
+            </div>
+            <div class="form-group form-actions">
+              <button type="submit" class="btn btn-effect-ripple btn-primary disabled disabled2" ng-disabled=" vm.user.username === 'Test' ">Submit</button>
+              <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <i class="fa fa-angle-right"></i> <a id="settings-link" class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#settings"><strong>Individual miner, pool and wallet for {{ vm.getName() }} </strong></a>
+        </div>
+      </div>
+      <div id="settings" class="panel-collapse collapse">
+        <div class="panel-body">
+            <form id="settings-form" name="settingsForm" ng-submit="vm.setsettings(settingsForm.$valid)" class="form-bordered">
+
+              <div class="form-group">
+                  <label for="current-miner">Current Miner for this rig</label>
+                  <input id="current-miner" ng-model="vm.params.miner" type="text" class="form-control" name="firstName" disabled>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Select a new miner</label>
+                  <div class="selectContainer">
+                      <select ng-model="vm.input.groupminer" class="form-control" name="miner" data-error="Please select a miner" required>
+                          <option value="">Choose a miner</option>
+                          <option value="claymore">Claymore Ethereum</option>
+                          <option value="claymore-xmr">Claymore XMR</option>
+                          <option value="claymore-zec">Claymore Zcash</option>
+                          <option value="ethminer">Genoil Ethminer</option>
+                          <option value="optiminer-zcash">Optiminer Zcash</option>
+                          <option value="sgminer-gm">Sgminer Ethereum</option>
+                          <option value="sgminer-gm-xmr">Sgminer XMR</option>
+                        </select>
+                      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                      <div class="help-block with-errors"></div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="current-miner">Current Wallet for this rig</label>
+                  <input id="current-miner" ng-model="vm.params.wallet" type="text" class="form-control" name="groupwallet" disabled>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Hey {{vm.user.firstName}}, choose one of the wallets or enter one:</label>
+                  <div class="selectContainer">
+                      <select ng-model="vm.input.groupwallet" class="form-control" name="wallet" data-error="Please select a wallet" required>
+                          <option value="">Choose a wallet</option>
+                          <option value="0xB6DDA3388887aa64e036727392324Bb65Cdc8f88">0xB6DDA3388887aa64e036727392324Bb65Cdc8f88</option>
+                          <option value="0xa2B56e0cFf9b75B9ca3091F64Ad41a8247CAEaa3">0xa2B56e0cFf9b75B9ca3091F64Ad41a8247CAEaa3</option>
+                          <option value="0x2b3ADEd23067e7d3491FB60750C8B8Cc0aa52003">0x2b3ADEd23067e7d3491FB60750C8B8Cc0aa52003</option>
+                          <option value="0x9FAE574fdE7C452315eF85C7Aba31dbe0D01506A">0x9FAE574fdE7C452315eF85C7Aba31dbe0D01506A</option>
+                          <option value="0xfa301f123BbEA2EcE001E5a01327046966F64C08">0xfa301f123BbEA2EcE001E5a01327046966F64C08</option>
+                          <option value="0xfd6bB6390fB9A4372911bB293A516f9834D44aE6">0xfd6bB6390fB9A4372911bB293A516f9834D44aE6</option>
+                          <option value="0x7b9280d5A42Ff8e8727BFFDA9601A4cE925eac0F">0x7b9280d5A42Ff8e8727BFFDA9601A4cE925eac0F</option>
+                          <option value="0x8E32979355B9Ee101B92fa531B625556191B68d2">0x8E32979355B9Ee101B92fa531B625556191B68d2</option>
+                          <option value="0x44b2Ac31bAFaa33Cf8C61CA029Ee4cFe0F9fCe0C">0x44b2Ac31bAFaa33Cf8C61CA029Ee4cFe0F9fCe0C</option>
+                          <option value="0x5C21E4275ABBc9ae4fc6320aF67eb9Fcc84e80c8">0x5C21E4275ABBc9ae4fc6320aF67eb9Fcc84e80c8</option>
+                          <option value="0x9F9bCDfd2fC4D56d8B1FDF457C55eaE75607ACb8">0x9F9bCDfd2fC4D56d8B1FDF457C55eaE75607ACb8</option>
+                          <option value="0x081dD1FDF26D52B45Fd771030f678B183B6cC179">0x081dD1FDF26D52B45Fd771030f678B183B6cC179</option>
+                          <option value="0x760e15d2313462b91DFdC549271ceB03904c79b4">0x760e15d2313462b91DFdC549271ceB03904c79b4</option>
+                          <option value="0xcf95c942A8Ba18dd3AE3Dc62a0D10F892114397b">0xcf95c942A8Ba18dd3AE3Dc62a0D10F892114397b</option>
+                          <option value="0xD01F238c4cDbCC7D5C76fCd4e20017426d6B0481">0xD01F238c4cDbCC7D5C76fCd4e20017426d6B0481</option>
+                        </select>
+                      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                      <div class="help-block with-errors"></div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="current-miner">Current Pool for this rig</label>
+                  <input id="current-miner" ng-model="vm.params.pool" type="text" class="form-control" name="grouppool" disabled>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">New Pool for this rig</label>
+                  <div class="selectContainer">
+                      <select ng-model="vm.input.grouppool" class="form-control" name="pool" data-error="Please select a pool" required>
+                          <option value="">Choose a pool</option>
+                          <option value="eth-eu1.nanopool.org:9999">eth-eu1.nanopool.org:9999</option>
+                          <option value="eth-eu2.nanopool.org:9999">eth-eu2.nanopool.org:9999</option>
+                          <option value="eth-us-east1.nanopool.org:9999">eth-us-east1.nanopool.org:9999</option>
+                          <option value="eth-us-west1.nanopool.org:9999">eth-us-west1.nanopool.org:9999</option>
+                          <option value="eu1.ethermine.org:4444">eu1.ethermine.org:4444</option>
+                          <option value="eu2.ethermine.org:4444">eu2.ethermine.org:4444</option>
+                          <option value="us1.ethermine.org:4444">us1.ethermine.org:4444</option>
+                          <option value="us2.ethermine.org:4444">us2.ethermine.org:4444</option>
+                          <option value="eu1.ethpool.org:3333">eu1.ethpool.org:3333</option>
+                          <option value="us1.ethpool.org:3333">us1.ethpool.org:3333</option>
+                        </select>
+                      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                      <div class="help-block with-errors"></div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <button type="submit" class="btn btn-effect-ripple btn-primary disabled" ng-disabled="settingsForm.$isValid">Submit</button>
+                  <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <i class="fa fa-angle-right"></i> <a id="clock-link" class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#clock"><strong>Individual clock settings for {{ vm.getName() }} </strong></a>
+        </div>
+      </div>
+      <div id="clock" class="panel-collapse collapse">
+        <div class="panel-body">
+          <form id="clock-form" name="clockForm" ng-submit="vm.setClock(clockForm.$valid)" class="form-horizontal form-bordered" data-toggle="validator">
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">Current Core clock for this rig | GPU Count: {{ vm.params.gpus }}</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <span class="form-control" disabled>{{ vm.coreRig() }}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">New Core Clock for this rig</label>
+              </div>
+            </div>
+            <div class="form-group has-feedback">
+              <div ng-repeat="core in vm.input.core track by $index" class="col-sm-2">
+                GPU {{ $index }} : <input type="text" ng-model="vm.input.core[$index]" pattern="^[0-9]*$" class="form-control" minlength="3" maxlength="4" placeholder="1000" data-error="Thats not a correct number" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+              <!-- <input type="text" pattern="^[0-9 ]*$" class="form-control" name="newCore" minlength="3" maxlength="41" placeholder="1000 1050 1075 1000 1100" data-error="That's not a correct number" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>-->
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">Current Memory Clock for this rig</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <span class="form-control" disabled>{{ vm.memRig() }}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">New Memory Clock for this rig</label>
+              </div>
+            </div>
+            <div class="form-group has-feedback">
+              <div ng-repeat="mem in vm.input.mem track by $index" class="col-sm-2">
+                GPU {{ $index }} : <input type="text" ng-model="vm.input.mem[$index]" pattern="^[0-9]*$" class="form-control" minlength="3" maxlength="4" placeholder="1500" data-error="Thats not a correct number" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+              <!--<input type="text" pattern="^[0-9 ]*$" class="form-control" name="newMem" minlength="3" maxlength="41" placeholder="1500 1250 1750 1500 1625" data-error="That's not a correct number" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>-->
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">Current Fan Setting for this rig</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <span class="form-control" disabled>{{ vm.fanRig() }}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">New Fan Setting for this rig</label>
+              </div>
+            </div>
+            <div class="form-group has-feedback">
+              <div ng-repeat="fan in vm.input.fan track by $index" class="col-sm-2">
+                GPU {{ $index }} : <input ng-model="vm.input.fan[$index]" type="text" pattern="^[0-9]*$" class="form-control" minlength="2" maxlength="3" placeholder="75" data-error="Thats not a correct number" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+              <!--<input type="text" class="form-control" name="newFan" minlength="2" maxlength="31" placeholder="50 70 60 60 50" data-error="That is not correct?" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>-->
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">Current Power Setting for this rig</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <span class="form-control" disabled>{{ vm.pwrRig() }}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label for="example-nf-password">New Power Setting for this rig | MAX 7 FOR RX Series Cards!</label>
+              </div>
+            </div>
+            <div class="form-group has-feedback">
+              <div ng-repeat="power in vm.input.power track by $index" class="col-sm-2">
+                GPU {{ $index }} : <input ng-model="vm.input.power[$index]" type="text" pattern="^[0-9]*$" class="form-control" minlength="1" maxlength="2" placeholder="7" data-error="Thats not a correct number" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+              <!--<input name="newPower" id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="7" data-slider-step="1" data-slider-value="1" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>-->
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group form-actions">
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-effect-ripple btn-primary disabled disabled2">Submit</button>
+                <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <i class="fa fa-angle-right"></i> <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#rename"><strong>Rename <?php if (isset($_GET['miner'])){ echo $_GET['miner']; } else { echo $_GET['rig']; } ?></strong></a>
+        </div>
+      </div>
+      <div id="rename" class="panel-collapse collapse">
+        <div class="panel-body">
+          <form id="rename-form" name="renameForm" ng-submit="vm.setName(renameForm.$valid)" class="form-bordered">
+            <div class="form-group">
+              <label for="example-nf-password">Current name</label>
+              <span class="form-control" disabled>{{vm.getName()}}</span>
+            </div>
+            <div class="form-group has-feedback">
+              <label for="example-nf-password">New name</label>
+              <input type="text" id="newName" name="newName" class="form-control" minlength="2" data-error="Please enter a new name.." required>
+              <input type="hidden" id="mac" name="mac" class="form-control" value="<?php echo $mac; ?>">
+              <input type="hidden" id="ip" name="ip" class="form-control" value="<?php echo $ip; ?>">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group form-actions">
+              <button type="submit" class="btn btn-effect-ripple btn-primary disabled disabled2" ng-disabled=" vm.user.username === 'Test' ">Submit</button>
+              <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <i class="fa fa-angle-right"></i> <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#threads"><strong>...</strong></a>
+        </div>
+      </div>
+      <div id="threads" class="panel-collapse collapse">
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

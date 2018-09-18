@@ -1,0 +1,44 @@
+- shelljs@0.6.1 node_modules/shelljs
+mining_solution@0.5.0 /Volumes/Work/_Git/nodev
+└─┬ UNMET PEER DEPENDENCY eslint@4.11.0 invalid
+  ├─┬ chalk@2.3.0 
+  │ ├─┬ ansi-styles@3.2.0 
+  │ │ └── color-convert@1.9.1 
+  │ └─┬ supports-color@4.5.0 
+  │   └── has-flag@2.0.0 
+  ├── debug@3.1.0 
+  ├── doctrine@2.0.0 
+  ├── eslint-scope@3.7.1 
+  ├── espree@3.5.2 
+  ├── file-entry-cache@2.0.0 
+  ├── functional-red-black-tree@1.0.1 
+  ├─┬ inquirer@3.3.0 
+  │ ├── ansi-escapes@3.0.0 
+  │ ├─┬ cli-cursor@2.1.0 
+  │ │ └─┬ restore-cursor@2.0.0 
+  │ │   └─┬ onetime@2.0.1 
+  │ │     └── mimic-fn@1.1.0 
+  │ ├─┬ external-editor@2.0.5 
+  │ │ ├── iconv-lite@0.4.19 
+  │ │ ├── jschardet@1.6.0 
+  │ │ └── tmp@0.0.33 
+  │ ├── figures@2.0.0 
+  │ ├── mute-stream@0.0.7 
+  │ ├─┬ run-async@2.3.0 
+  │ │ └── is-promise@2.1.0 
+  │ ├── rx-lite@4.0.8 
+  │ ├── rx-lite-aggregates@4.0.8 
+  │ └─┬ string-width@2.1.1 
+  │   └── is-fullwidth-code-point@2.0.0 
+  ├─┬ js-yaml@3.10.0 
+  │ └── esprima@4.0.0 
+  ├── json-stable-stringify-without-jsonify@1.0.1 
+  ├── pluralize@7.0.0 
+  ├── progress@2.0.0 
+  ├─┬ strip-ansi@4.0.0 
+  │ └── ansi-regex@3.0.0 
+  ├── strip-json-comments@2.0.1 
+  └─┬ table@4.0.2 
+    ├── ajv-keywords@2.1.1 
+    └── slice-ansi@1.0.0 
+

@@ -1,0 +1,345 @@
+<div class="panel-group">
+  <div class="panel">
+    <!-- <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse"  href="#collapse1">Farm Details</a>
+      </h4>
+		</div> -->
+    <button type="button" data-toggle="collapse" href="#collapse1" class="btn btn-block btn-primary whiteup">Farm Details</button>
+		<div id="collapse1" class="panel-collapse collapse">
+		  <div class="panel-body">
+
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="widget">
+							<div class="widget-content widget-content-mini themed-background-dark-flat">
+								<strong class="text-light-op">Rigs</strong>
+							</div>
+
+							<div class="widget-content">
+								<div class="row text-center">
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total Rigs</small><br><a href="?status=all" class="themed-color-flat">{{ vm.dashboard.rig.totalCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total Online</small><br><a href="?status=online" class="themed-color-flat">{{ vm.dashboard.rig.onlineCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total Offline</small><br><a href="?status=offline" class="themed-color-passion">{{ vm.dashboard.rig.offlineCount }}</a></h4>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Rigs on ETH</small><br><a href="#" class="themed-color-flat">{{ vm.dashboard.rig.ethCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Rigs on XMR</small><br><a href="#" class="themed-color-flat">{{ vm.dashboard.rig.xmrCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Rigs on ZEC</small><br><a href="#" class="themed-color-flat">{{ vm.dashboard.rig.zecCount }}</a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="widget">
+							<div class="widget-content widget-content-mini themed-background-dark-flat">
+								<strong class="text-light-op">GPU's</strong>
+							</div>
+							<div class="widget-content">
+								<div class="row text-center">
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total</small><br><a href="javascript:void(0)" class="themed-color-flat">{{ vm.dashboard.gpu.totalCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Active</small><br><a href="javascript:void(0)" class="themed-color-flat">{{ vm.dashboard.gpu.onlineCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Inactive</small><br><a href="javascript:void(0)" class="themed-color-passion">{{ vm.dashboard.gpu.offlineCount }}</a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="widget">
+							<div class="widget-content widget-content-mini themed-background-dark-flat">
+								<strong class="text-light-op">Hashrate</strong>
+							</div>
+							<div class="widget-content">
+								<div class="row text-center">
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total</small><br><a href="javascript:void(0)" class="themed-color-flat">{{ vm.dashboard.hash.totalCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Last 10min</small><br><a href="javascript:void(0)" class="themed-color-flat">{{ vm.dashboard.hash.onlineCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Offline Hash</small><br><a href="javascript:void(0)" class="themed-color-passion">{{ vm.dashboard.hash.offlineCount }}</a></h4>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total Hash ETH</small><br><a href="#" class="themed-color-flat">{{ vm.dashboard.hash.ethCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total Hash XMR</small><br><a href="#" class="themed-color-flat">{{ vm.dashboard.hash.xmrCount }}</a></h4>
+									</div>
+									<div class="col-xs-4">
+										<h4 class="widget-heading"><small>Total Hash ZEC</small><br><a href="#" class="themed-color-flat">{{ vm.dashboard.hash.zecCount }}</a></h4>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		  </div>
+		  <div class="panel-footer"></div>
+		</div>
+  </div>
+</div>
+
+<div class="block full">
+  <!-- Table Styles Content -->
+  <div class="block-title text-center" ng-if=" vm.user.username === 'Test' ">
+    <h2>Welcome to LDW Mining Manager, this is a Demo account, this means you are not able to change anything.</h2><br>
+    <h2>In order to unlock all features, please send an email to ldwcommun@gmail.com or pm me on bitcointalk (Eliovp).</h2><br>
+  </div>
+  <div class="table-responsive">
+      <!--
+      Available Table Classes:
+          'table'             - basic table
+          'table-bordered'    - table with full borders
+          'table-borderless'  - table with no borders
+          'table-striped'     - striped table
+          'table-condensed'   - table with smaller top and bottom cell padding
+          'table-hover'       - rows highlighted on mouse hover
+          'table-vcenter'     - middle align content vertically
+      -->
+      <table datatable="ng" id="example-datatable" class="table table-striped table-bordered table-vcenter table-sm table-hover table-condensed">
+        <thead>
+          <tr>
+            <th style="font-size: small; text-align: center;">Name</th>
+            <th style="font-size: small; text-align: center;">Status</th>
+            <th style="font-size: small; text-align: center;">IP</th>
+            <th style="font-size: small; text-align: center;">Uptime</th>
+            <th style="font-size: small; text-align: center;">GPU's</th>
+            <th style="font-size: small; text-align: center;">GPU Hashes</th>
+            <th style="font-size: small; text-align: center;">Total Hashrate</th>
+            <th style="font-size: small; text-align: center;">Group</th>
+            <th style="font-size: small; text-align: center;">Temperatures</th>
+            <th style="font-size: small; text-align: center;">Fanspeed (%)</th>
+            <th style="font-size: small; text-align: center;">Version</th>
+            <th class="text-center" style="width: 50px; font-size: small;"><i class="fa fa-flash"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="machine in vm.machines" ng-if="(vm.machineState === 'online' && machine.online === true) || (vm.machineState === 'offline' && machine.online === false) || vm.machineState === 'all'"
+          ng-class="machine.display.trClass" repeat-loaded="vm.setTooltip()" style='font-size: small;'>
+
+            <td align="center" valign="middle">
+              <span class="success" data-toggle="tooltip" data-container="body" data-html="true" title="Active miner: {{ machine.display.miner }} <br>Group: {{ machine.display.group }} <br />Wallet: {{ machine.display.wallet }}<br />Pool1: {{ machine.display.pool1 }}<br>Pool2: {{ machine.display.pool2 }}">
+                <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'renameModalContent.html', 'RenameController', { machine: machine })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="modal" data-target="#renameModal" class="danger">
+                  {{ machine.info.hostname }}
+                </a>
+              </span>
+            </td>
+
+            <td align="center" valign="middle">
+              <span class="label {{ machine.display.statusClass }}" data-toggle="{{ machine.online ? 'tooltip' : '' }}" title="CPU Mining: {{ machine.display.cpuMiner }}">
+                {{ machine.display.status }}
+              <span>
+            </td>
+
+            <td align="center" valign="middle">
+              <span class="success" ng-if="machine.online == true">
+                <a href="javascript:void(0)" ui-sref="home.ip-settings({ state: 'settings', mac: machine.info.mac, name: machine.info.hostname })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="tooltip" title="Click to give me a static ip" class="danger">
+                  {{ machine.info.ip }}
+                </a>
+              </span>
+              <span ng-if="machine.online == false">{{ machine.info.ip }}</span>
+            </td>
+
+
+            <td align="center" valign="middle">
+              <span ng-class="machine.info.hash ? 'success' : 'danger' ">
+                <a href="#" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-toggle="tooltip" title="Last seen: {{ machine.display.updated }}">
+                  {{ machine.display.uptime }}
+                </a>
+              </span>
+            </td>
+
+            <td align="center" valign="middle">
+              <a href="#" data-toggle="tooltip" data-container="body" data-html="true" title="<span>{{ machine.display.model }}</span>" class="btn btn-dark-flat btn-effect-ripple btn-xs">
+                {{ machine.info.gpus }}
+              </a>
+            </td>
+
+            <td align="center" valign="middle">
+              <a href="#" ng-if="!machine.info.hash" class="btn btn-danger btn-xs" disabled>
+                Hardware Issues!
+              </a>
+              <span ng-if="machine.info.hash">{{ machine.info.miner_hashes }}</span>
+            </td>
+
+            <td align="center" valign="middle">
+              <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'hashModalContent.html', 'HashController', { miner: machine.info.hostname })" class="btn btn-effect-ripple btn-dark-flat btn-xs" data-target="#chartModal" data-toggle="modal">
+                {{ machine.info.hash }} {{ machine.display.hashUnit }}
+              </a>
+            </td>
+            <td align="center" valign="middle">
+              {{ machine.display.group }}
+            </td>
+            <td align="center" valign="middle">
+              {{ machine.info.temp }}
+            </td>
+            <td align="center" valign="middle">
+              {{ machine.info.fanpercent }}
+            </td>
+            <td align="center" valign="middle">
+              {{ machine.info.version }}
+            </td>
+            <td align="center" valign="middle" class="text-center" width="10%" cellpadding="0" cellspacing="0">
+              <a href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'logModalContent.html', 'LogsController', { miner: machine.info.hostname })" class="btn btn-effect-ripple btn-xs btn-danger" ><span data-toggle="tooltip" title="Miner Log" data-placement="top"><i class="fa fa-file-text-o"></i></span></a>
+              <a ng-if="machine.online" ui-sref="home.rig-settings({ state: 'settings', miner: machine.display.miner, pool: machine.display.pool1, wallet: machine.display.wallet, mac: machine.info.mac, gpus: machine.info.gpus, host: machine.info.hostname })" data-toggle="tooltip" title="Settings" class="btn btn-effect-ripple btn-xs btn-info"><i class="fa fa-sliders"></i></a>
+              <a ng-if="machine.online" href="javascript:void(0)" ng-click="vm.openDialog('md', '.modal-parent', 'rebootModalContent.html', 'RebootController', { mac: machine.info.mac, rig: machine.info.hostname })" class="btn btn-effect-ripple btn-xs btn-danger" ><span data-toggle="tooltip" title="Reboot Rig"><i class="fa fa-power-off"></i></span></a>
+              <a ng-if="!machine.online" ng-click="vm.deleteMachine(machine.user, machine.host)" data-toggle="tooltip" title="Remove Dead Entry" class="btn btn-effect-ripple btn-xs btn-danger" ><i class="fa fa-trash-o"></i></a>
+            </td>
+          </tr>
+      </tbody>
+
+  </div>
+  <!-- END Table Styles Content -->
+</div>
+
+<div class="modal-group">
+  <div class="modal-parent">
+  </div>
+</div>
+
+<!-- Dialog Templates -->
+<script type="text/ng-template" id="renameModalContent.html">
+  <div class="modal-header">
+      <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+       <h4 class="modal-title" id="modal-title">{{ $ctrl.machine.host }}</h4>
+  </div>
+  <div class="modal-body" id ="modal-body">
+    <form id="rename-form" name="renameForm" ng-submit="$ctrl.rename(renameForm.$valid)" class="form-bordered">
+      <div class="form-group">
+        <label for="example-nf-password">Current name</label>
+          <span class="form-control" disabled>{{ $ctrl.machine.host }}</span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <label for="example-nf-password">New name</label>
+        <input ng-model="$ctrl.input.name" type="text" id="newName" name="newName" class="form-control" minlength="2" data-error="Please enter a new name.." required>
+
+        <input type="hidden" id="mac" name="mac" class="form-control" value="{{ $ctrl.machine.info.mac }}">
+        <input type="hidden" id="ip" name="ip" class="form-control" value="{{ $ctrl.machine.info.ip }}">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+      </div>
+      <div class="form-group form-actions">
+        <button type="submit" class="btn btn-effect-ripple btn-primary" ng-class="{'disabled': renameForm.$invalid}" ng-disabled=" $ctrl.user.username === 'Test' ">Submit</button>
+        <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+        <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.cancel()">Close</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</script>
+
+<script type="text/ng-template" id="rebootModalContent.html">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">{{ $ctrl.rig }}</h4>
+  </div>
+  <div class="modal-body">
+    <form id="reboot-form" name="rebootForm" ng-submit="$ctrl.reboot(rebootForm.$valid)" class="form-bordered">
+      <div class="form-group">
+        <label for="example-nf-password">Current amount of single reboots</label>
+        <span class="form-control" disabled>{{ $ctrl.getReboots() }}</span>
+      </div>
+      <div class="form-group has-feedback">
+        <div class="checkbox">
+          <label>
+          <input ng-model="vm.input.reboot" type="checkbox" id="terms" data-error="You have to be sure!" required>
+          Are you sure?
+          </label>
+          <div class="help-block with-errors"></div>
+        </div>
+        <input type="hidden" id="hostname" name="hostname" class="form-control" value="{{ $ctrl.rig }}">
+        <input type="hidden" id="mac" name="mac" class="form-control" value="{{ $ctrl.mac }}">
+      </div>
+      <div class="form-group form-actions">
+        <button type="submit" class="btn btn-effect-ripple btn-primary" ng-class="{'disabled': rebootForm.$invalid}" ng-disabled=" $ctrl.user.username === 'Test' ">Submit</button>
+        <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+        <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.cancel()">Close</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</script>
+
+<script type="text/ng-template" id="logModalContent.html">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">{{ $ctrl.miner }}</h4>
+  </div>
+  <div class="modal-body">
+  <div class="block">
+    <div id="faq1" class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <i class="fa fa-angle-right"></i> <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#faq1_q1"><strong>Log (short)</strong></a>
+          </div>
+        </div>
+        <div id="faq1_q1" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <p class="remove-margin"><span>{{ $ctrl.latestLog() }}</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <i class="fa fa-angle-right"></i> <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#faq1_q2"><strong>Log (long)</strong></a>
+          </div>
+        </div>
+        <div id="faq1_q2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p class="remove-margin" ng-repeat="log in $ctrl.logs">
+              {{ log }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-effect-ripple btn-danger" ng-click="$ctrl.clear()" ng-disabled=" $ctrl.user.username === 'Test' ">Clear Logs</button> -->
+    <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Close</button>
+  </div>
+</script>
+
+<script type="text/ng-template" id="hashModalContent.html">
+  <div class="modal-header">
+      <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+       <h4 class="modal-title" id="modal-title">{{ $ctrl.miner }}</h4>
+  </div>
+  <div class="modal-body" id ="modal-body">
+    <canvas class="chart chart-line" chart-data="$ctrl.data" chart-labels="$ctrl.labels"
+    	chart-series="$ctrl.series" chart-click="$ctrl.onClick" chart-options="$ctrl.options"></canvas>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.cancel()">Close</button>
+  </div>
+</script>

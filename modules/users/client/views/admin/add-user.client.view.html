@@ -1,0 +1,92 @@
+<div class="content-header">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="header-section">
+                <h1>Create New User</h1>
+            </div>
+        </div>
+        <div class="col-sm-6 hidden-xs">
+            <div class="header-section">
+                <ul class="breadcrumb breadcrumb-top">
+                    <li>users</li>
+                    <li><a href="">add users</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block">
+    <div class="block-title">
+        <h2>Add new user</h2>
+    </div>
+    <div class="panel-body">
+        <form id="create-form" name="createForm" ng-submit="vm.createUser(createForm.$valid)" class="form-bordered">
+        <div class="form-group has-feedback">
+            <label for="example-nf-password">First Name</label>
+            <input ng-model="vm.input.firstName" type="text" class="form-control" name="firstName" minlength="1" maxlength="15" data-error="Please enter first name of new user" required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="control-label">Last Name</label>
+            <input ng-model="vm.input.lastName" type="text"class="form-control" name="lastName" minlength="1" maxlength="15" data-error="Please enter last name of new user" required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="control-label">Email</label>
+            <input ng-model="vm.input.email" type="text" pattern="[-a-zA-Z0-9@:%._\+\/\/~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&=]*)" class="form-control" name="email" minlength="7" data-error="Is that a valid pooladdres?" >
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="example-nf-password">User Name</label>
+            <input ng-model="vm.input.username" type="text" class="form-control" name="username" minlength="1" maxlength="15" data-error="Please enter username of new user" required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="control-label">Roles</label>
+            <div class="selectContainer">
+                <select ng-model="vm.input.roles" class="form-control" name="roles" data-error="Please select a role" value="" required>
+                    <option value="">Choose a role</option>
+                    <option value="admin">Administrator</option>
+                    <option value="user">User</option>
+                </select>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="control-label">Password</label>
+            <input ng-model="vm.input.password" type="password" class="form-control" name="wallet" minlength="10" data-error="You don't need a wallet?" required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="control-label">Confirm Password</label>
+            <input ng-model="vm.confirm" type="password" class="form-control" name="confirm" minlength="10" data-error="You don't need a wallet?" required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="control-label">Machines</label>
+            <div class="selectContainer">
+                <select ng-model="vm.input.machines" class="form-control" name="machines" data-error="Please select a machine" value="" required>
+                    <option value="">Choose a machine</option>
+                    <option value="AMD">AMD</option>
+                    <option value="NVIDIA">NVIDIA</option>
+                </select>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="form-group form-actions">
+            <button type="submit" class="btn btn-effect-ripple btn-primary" ng-disabled=" $ctrl.user.username === 'Test' ">Add</button>
+            <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
+        </div>
+        </form>
+    </div>
+    </div>
+</div>
+        
